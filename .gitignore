@@ -3,6 +3,5 @@
 bin/*
 logs/*
 *.jar
-/target/
 .classpath
 .project
