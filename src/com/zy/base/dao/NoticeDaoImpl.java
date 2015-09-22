@@ -53,7 +53,6 @@ public class NoticeDaoImpl extends CustomBaseSqlDaoImpl implements NoticeCustomD
 			hql.append(" and l.endDate = :endDateTo ");
 			params.put("endDateTo", queryDto.getEndDateTo());
 		}
-		
 		if(queryDto.getStartDateFrom()!=null){
 			hql.append(" and l.startDate >= :startDateFrom ");
 			params.put("startDateFrom", queryDto.getStartDateFrom());
@@ -61,6 +60,11 @@ public class NoticeDaoImpl extends CustomBaseSqlDaoImpl implements NoticeCustomD
 		if(queryDto.getStartDateTo()!=null){
 			hql.append(" and l.startDate = :startDateTo ");
 			params.put("startDateTo", queryDto.getStartDateTo());
+		}
+		
+		if(queryDto.getDeleteFlag()!=null){
+			hql.append(" and l.deleteFlag = :deleteFlag ");
+			params.put("deleteFlag", queryDto.getDeleteFlag());
 		}
 		
 		hql.append(" order by l.updateDate desc ");
