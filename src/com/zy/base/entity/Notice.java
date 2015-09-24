@@ -20,12 +20,16 @@ import com.zy.common.entity.BaseEntity;
 public class Notice extends BaseEntity{
 
 	private static final long serialVersionUID = 7626772414167292630L;
+	
+	public static final String NOTICETYPE_MAIN = "0";//重要公告
+	public static final String NOTICETYPE_BREAK = "1";//休市安排
+	public static final String NOTICETYPE_REPAIR = "2";//维护通知
 
 	private String language;//语言类型（0-简体，1-繁体）
 	private String title;//标题
 	private String applyType;//应用平台类型（0-交易平台，1-前台系统，2-通用）
 	private String displayType;//弹窗类型（0-弹窗，1-通知栏，2-通用）
-	private String noticeType;//公告类型（0-重要公告，1-优惠通知）
+	private String noticeType;//公告类型（0-重要公告,1-休市安排,2-维护通知）
 	private String photoUrl;//图片
 	private String content;//内文
 	@DateTimeFormat(pattern="yyyy-MM-dd")
