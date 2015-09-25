@@ -1,5 +1,7 @@
 package com.zy.base.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,4 +29,19 @@ public class NoticeService extends CommonService<Notice,String>{
 		noticeDao.updateDeleteFlag(ids, isDelete);
 	}
 	
+	public List<Notice> getNoticeByStatusAndType(String noticeType){
+		return noticeDao.getNoticeByStatusAndType(noticeType);
+	}
+	
+	public List<Notice> getAllNotice(){
+		return noticeDao.getAllNotice();
+	}
+	
+	public int getActiveNoticeNumb(){
+		return noticeDao.getActiveNoticeNumb();
+	}
+	
+	public int getNoticeNumbByType(String noticeType){
+		return noticeDao.getNoticeNumbByType(noticeType);
+	}
 }
