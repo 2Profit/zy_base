@@ -24,6 +24,7 @@ public class Notice extends BaseEntity{
 	public static final String NOTICETYPE_MAIN = "0";//重要公告
 	public static final String NOTICETYPE_BREAK = "1";//休市安排
 	public static final String NOTICETYPE_REPAIR = "2";//维护通知
+	public static final String PROP_START_DATE = "startDate";
 
 	private String language;//语言类型（0-简体，1-繁体）
 	private String title;//标题
@@ -51,6 +52,7 @@ public class Notice extends BaseEntity{
 	private String[] ids;//用于传递id数组
 	private Integer imageWidth;//图片宽
 	private Integer imageHeight;//图片高
+	private String orderByParam;//排序字段
 	
 	
 	@Column(length=2)
@@ -171,6 +173,13 @@ public class Notice extends BaseEntity{
 	}
 	public void setImageHeight(Integer imageHeight) {
 		this.imageHeight = imageHeight;
+	}
+	@javax.persistence.Transient
+	public String getOrderByParam() {
+		return orderByParam;
+	}
+	public void setOrderByParam(String orderByParam) {
+		this.orderByParam = orderByParam;
 	}
 
 	

@@ -67,7 +67,11 @@ public class NoticeDaoImpl extends CustomBaseSqlDaoImpl implements NoticeCustomD
 			params.put("deleteFlag", queryDto.getDeleteFlag());
 		}
 		
-		hql.append(" order by l.updateDate desc ");
+		if(StringUtils.isNotBlank(queryDto.getOrderByParam())){
+			hql.append(" order by l.").append(queryDto.getOrderByParam()).append(" desc ");
+		}else{
+			hql.append(" order by l.updateDate desc ");
+		}
 		
 		return this.queryForPageWithParams(hql.toString(),params,pageModel.getCurrentPage(), pageModel.getPageSize());
 	}
